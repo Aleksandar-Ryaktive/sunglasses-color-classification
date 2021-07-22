@@ -1,32 +1,19 @@
+import streamlit as st
 
 import os
 import sys
-#https://github.com/streamlit/streamlit/issues/511
-#pip install --upgrade protobuf
-#pip install streamlit
-
-import streamlit as st
-import cv2 
+#import cv2 
 import numpy as np
 import pandas as pd
+import tensorflow as tf
 from PIL import Image,ImageEnhance
-
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
 from keras.applications.imagenet_utils import decode_predictions
-import time
-
-
-import os
-import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
-from tensorflow.keras.models import Sequential, load_model
-import time
+from tensorflow.keras.models import load_model
 from keras import backend as K
-
 from sklearn.datasets import load_files  
-import pandas as pd
-import tensorflow as tf
 #from tensorflow.keras.utils import np_utils
 #import cv2
 import keras, os
@@ -39,22 +26,13 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input
 from tensorflow.keras.constraints import max_norm
 from numpy import expand_dims
 from io import BytesIO
-from PIL import Image
 #from tabulate import tabulate
 import matplotlib.pyplot as plt
 #%matplotlib inline
-
-
-
-# import the models for further classification experiments
+from datetime import time
 from tensorflow.keras.applications import DenseNet169
-
-import matplotlib.pyplot as plt
-
-# imports for reproducibility
-import tensorflow as tf
 import random
-import os
+
 
 st.title("Sunglasses Lens Color Image Classification App")
 st.write("")
