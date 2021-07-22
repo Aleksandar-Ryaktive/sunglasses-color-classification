@@ -1,0 +1,15 @@
+0, black
+1, blue
+2, brown
+3, burgundy
+4, clear
+5, gold
+6, green
+7, grey
+8, orange
+9, pink
+10, purple
+11, rainbow
+12, red
+13, silver
+14, yellow
