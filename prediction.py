@@ -9,7 +9,7 @@ from io import BytesIO
 
 
 #best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
-best_model = load_model("https://drive.google.com/drive/folders/12whcvuhkl-V6imqs_b9ermHbZvVEiZnl?usp=sharing/best_model.pt")
+best_model = load_model("https://drive.google.com/drive/folders/1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU?usp=sharing")
 
 
 class_names_processed = ['black',
