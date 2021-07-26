@@ -1,3 +1,4 @@
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
 import urllib.request
@@ -7,7 +8,9 @@ from PIL import Image
 from io import BytesIO 
 
 
-best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
+#best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
+best_model = tf.keras.models.load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
+
 
 class_names_processed = ['black',
 'blue',
