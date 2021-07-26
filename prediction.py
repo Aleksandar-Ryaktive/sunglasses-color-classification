@@ -1,29 +1,29 @@
-import streamlit as st
-import tensorflow as tf
-from tensorflow import keras
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import numpy as np
 import urllib.request
 import cv2
-from keras.applications.imagenet_utils import preprocess_input
+from tensorflow.keras.applications.imagenet_utils import preprocess_input
 from PIL import Image
 from io import BytesIO 
 
 
-st.title("Sunglasses Lens Color Image Classification App")
-st.write("")
+best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
 
-add_selectbox = st.sidebar.selectbox(
-    "Search by",
-    ("Lens Color", "Frame Color", "Shape")
-)
-
-
-best_model = load_model("C:/best_model/best_model.pt")
-
-class_names_processed = ['black','blue','brown','burgundy','clear',
-                         'gold','green','grey','orange','pink',
-                         'purple','rainbow','red', 'silver', 'yellow']
+class_names_processed = ['black',
+'blue',
+'brown',
+'burgundy',
+'clear',
+'gold',
+'green',
+'grey',
+'orange',
+'pink',
+'purple',
+'rainbow',
+'red', 
+'silver', 
+'yellow']
 
 def read_image(image_encoded):
     pil_image = Image.open(BytesIO(image_encoded))
