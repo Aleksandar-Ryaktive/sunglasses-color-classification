@@ -1,4 +1,5 @@
 import streamlit as st
+import altair as alt
 from PIL import Image
 import prediction as pr
 
