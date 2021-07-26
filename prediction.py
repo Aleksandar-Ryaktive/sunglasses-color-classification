@@ -9,7 +9,7 @@ from io import BytesIO
 
 
 #best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
-best_model = tf.keras.models.load_model("Best_model/best_model.pt")
+model = tf.keras.models.load_model("best_model.pt")
 
 
 class_names_processed = ['black',
@@ -34,7 +34,7 @@ def read_image(image_encoded):
 
 def get_prediction(image):
     image = np.expand_dims(image, axis=0)
-    prediction = best_model.predict(image)
+    prediction = model.predict(image)
     predicted_class = np.argmax(prediction)
     return class_names_processed[predicted_class]
 
