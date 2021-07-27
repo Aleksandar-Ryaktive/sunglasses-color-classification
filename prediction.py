@@ -17,9 +17,9 @@ def load_model():
         from GD_download import download_file_from_google_drive
         download_file_from_google_drive(cloud_model_location, f_checkpoint)
         
-    model = torch.load(f_checkpoint, map_location=device)
-    model.eval()
-    return model
+    best_model = torch.load(f_checkpoint, map_location=device)
+    best_model.eval()
+    return best_model
  
     
 #best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
