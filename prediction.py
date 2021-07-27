@@ -1,4 +1,4 @@
-# import tensorflow as tf
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
 import urllib.request
@@ -17,7 +17,7 @@ def load_model():
         from GD_download import download_file_from_google_drive
         download_file_from_google_drive(cloud_model_location, f_checkpoint)
         
-    best_model = torch.load(f_checkpoint, map_location=device)
+    best_model = tf.keras.models.load_model(f_checkpoint, map_location=device)
     best_model.eval()
     return best_model
  
