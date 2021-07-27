@@ -8,7 +8,7 @@ from PIL import Image
 from io import BytesIO 
 
 def load_model():
-    save_dest = Path('model')
+    save_dest = Path('best_model')
     save_dest.mkdir(exist_ok=True)
     
     f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
