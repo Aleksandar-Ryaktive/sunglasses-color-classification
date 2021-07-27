@@ -16,7 +16,7 @@ device = torch.device('cpu')
 cloud_model_location = "1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU"
 
 def best_model():
-    save_dest = Path('best_model')
+    save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
     
     f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
@@ -25,9 +25,9 @@ def best_model():
         from GD_download import download_file_from_google_drive
         download_file_from_google_drive(cloud_model_location, f_checkpoint)
         
-    best_model = load_model(f_checkpoint, map_location=device)
-    best_model.eval()
-    return best_model
+    model = load_model(f_checkpoint, map_location=device)
+    model.eval()
+    return model
  
     
 #best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
