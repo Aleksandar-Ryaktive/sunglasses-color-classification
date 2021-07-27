@@ -19,13 +19,14 @@ def best_model():
     save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
     
-    f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
+    #f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
+    f_checkpoint = Path("https://drive.google.com/drive/folders/1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU?export=download")
     
     if not f_checkpoint.exists():
         from GD_download import download_file_from_google_drive
         download_file_from_google_drive(cloud_model_location, f_checkpoint)
         
-    model = load_model(f_checkpoint, map_location=device)
+    model = tf.keras.models.load_model(f_checkpoint, map_location=device)
     model.eval()
     return model
  
