@@ -1,7 +1,7 @@
-#import tensorflow as tf
+import tensorflow as tf
 import torch
-#from tensorflow import keras
-#from tensorflow.keras.models import load_model
+from tensorflow import keras
+from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
 import urllib.request
@@ -11,22 +11,23 @@ from PIL import Image
 from io import BytesIO 
 from pathlib import Path
 
-device = torch.device('cpu')
-best_model = "https://drive.google.com/drive/folders/1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU?export=download"
 
-def load_model():
-    save_dest = Path('model')
+device = torch.device('cpu')
+cloud_model_location = "1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU"
+
+def best_model():
+    save_dest = Path('best_model')
     save_dest.mkdir(exist_ok=True)
     
     f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
     
     if not f_checkpoint.exists():
         from GD_download import download_file_from_google_drive
-        download_file_from_google_drive(best_model, f_checkpoint)
+        download_file_from_google_drive(cloud_model_location, f_checkpoint)
         
-    model = torch.load(f_checkpoint, map_location=device)
-    model.eval()
-    return model
+    best_model = load_model(f_checkpoint, map_location=device)
+    best_model.eval()
+    return best_model
  
     
 #best_model = load_model("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
