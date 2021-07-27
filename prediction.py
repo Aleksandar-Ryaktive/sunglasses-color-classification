@@ -53,8 +53,8 @@ def get_prediction(image):
     return class_names_processed[predicted_class]
 
 def url_to_image_(url):
-    resp = urllib.request.urlopen(url)
-    image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    #resp = urllib.request.urlopen(url)
+    #image = np.asarray(bytearray(resp.read()), dtype="uint8")
     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
     image_ = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image_resized = preprocess_input(cv2.resize(image, dsize=(224,224)))
