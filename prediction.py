@@ -1,13 +1,20 @@
-import tensorflow as tf
-from tensorflow.keras.models import load_model
+#import tensorflow as tf
+import torch
+#from tensorflow import keras
+#from tensorflow.keras.models import load_model
 import numpy as np
+import matplotlib.pyplot as plt
 import urllib.request
 import cv2
 from tensorflow.keras.applications.imagenet_utils import preprocess_input
 from PIL import Image
 from io import BytesIO 
+from pathlib import Path
 
-def best_model():
+device = torch.device('cpu')
+best_model = "https://drive.google.com/drive/folders/1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU?export=download"
+
+def load_model():
     save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
     
@@ -15,9 +22,9 @@ def best_model():
     
     if not f_checkpoint.exists():
         from GD_download import download_file_from_google_drive
-        download_file_from_google_drive(cloud_model_location, f_checkpoint)
+        download_file_from_google_drive(best_model, f_checkpoint)
         
-    model = tf.keras.models.load_model(f_checkpoint, map_location=device)
+    model = torch.load(f_checkpoint, map_location=device)
     model.eval()
     return model
  
@@ -42,13 +49,14 @@ class_names_processed = ['black',
 'silver', 
 'yellow']
 
+
 def read_image(image_encoded):
     pil_image = Image.open(BytesIO(image_encoded))
     return pil_image
 
 def get_prediction(image):
     image = np.expand_dims(image, axis=0)
-    prediction = model.predict(image)
+    prediction = best_model.predict(image)
     predicted_class = np.argmax(prediction)
     return class_names_processed[predicted_class]
 
