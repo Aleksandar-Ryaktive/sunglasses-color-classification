@@ -57,7 +57,7 @@ def read_image(image_encoded):
 
 def get_prediction(image):
     image = np.expand_dims(image, axis=0)
-    prediction = best_model.predict(image)
+    prediction = best_model().predict(image)
     predicted_class = np.argmax(prediction)
     return class_names_processed[predicted_class]
 
