@@ -4,7 +4,7 @@ import prediction as pr
 
 
 st.title("Sunglasses Lens Color Image Classification App")
-st.write("")
+st.write("This app preicts the sunglasses lens color on given image")
 
 
 file_up = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])

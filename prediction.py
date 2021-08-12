@@ -1,11 +1,11 @@
 import tensorflow as tf
-import torch
-from tensorflow import keras
-from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
 import urllib.request
 import cv2
+import torch
+from tensorflow import keras
+from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.imagenet_utils import preprocess_input
 from PIL import Image
 from io import BytesIO 
@@ -19,8 +19,7 @@ def best_model():
     save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
     
-    #f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
-    f_checkpoint = Path("https://drive.google.com/drive/folders/1DDk5L_-78PqcWlkMwDoNyaT91B28IhOU?export=download")
+    f_checkpoint = Path("C:/Users/Lenovo ThinkPad E15/OneDrive - Ryaktive Software Development/Documents/sunglasses-color-classification/best_model.pt")
     
     if not f_checkpoint.exists():
         from GD_download import download_file_from_google_drive
