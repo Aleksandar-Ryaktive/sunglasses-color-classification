@@ -1,5 +1,7 @@
 [note]: Work in progress
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/aleksandar-ryaktive/sunglasses-color-classification/main/file_uploader.py)
+
 # sunglasses-color-classification
 A model that would classify the color of a product
 
@@ -30,4 +32,3 @@ A model that would classify the color of a product
 
 **sunglasses-color-classification** is a Convolutional Neural Network model that recognizes one of the predefined 15 lens colors shown in sunglasses images.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/aleksandar-ryaktive/sunglasses-color-classification/main/file_uploader.py)
